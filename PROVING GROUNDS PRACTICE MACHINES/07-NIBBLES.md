@@ -173,6 +173,8 @@ uid=106(postgres) gid=113(postgres) groups=113(postgres),112(ssl-cert)
 https://gtfobins.github.io/gtfobins/find/#suid
 
 # SUID
+find / -perm -u=s -type f 2>/dev/null
+- Found
 /usr/bin/find
 
 # Privesc
