@@ -12,6 +12,7 @@ commander:CommanderKeenVorticons1990
 ## OPEN PORTS DETAILS
 ```bash
 22/tcp    open  ssh         syn-ack ttl 61 OpenSSH 8.3 (protocol 2.0)
+- OpenSSH 8.3 
 80/tcp    open  http        syn-ack ttl 61 Apache httpd 2.4.46 ((Unix) PHP/7.4.10)
 - Web Server
 	- Apache httpd 2.4.46
