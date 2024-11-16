@@ -3,11 +3,11 @@
 # IP ADDRESS
 192.168.153.105
 # HOSTNAME
-nukem
+nukem					// Found after initial foothold
 # OPERATING SYSTEM
-Arch Linux
+Arch Linux				// Found after initial foothold
 # CREDENTIALS
-commander:CommanderKeenVorticons1990
+commander:CommanderKeenVorticons1990	// Found after initial foothold
 ```
 ## OPEN PORTS DETAILS
 ```bash
