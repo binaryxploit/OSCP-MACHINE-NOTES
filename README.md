@@ -21,3 +21,4 @@
 - [Apex](https://github.com/binaryxploit/PROVING-GROUNDS-NOTES/blob/089212a3b429b758698d0f81640f66d69d6c3f75/PROVING%20GROUNDS%20PRACTICE%20MACHINES/19-APEX.md)
 - [Sorcerer](https://github.com/binaryxploit/PROVING-GROUNDS-NOTES/blob/e9493d19f1d07836dfa795e915f4f460b273efd6/PROVING%20GROUNDS%20PRACTICE%20MACHINES/20-SORCERER.md)
 - [Sybaris](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/5e24b29788e6cfbe010e4e686bdaa381199f0152/PROVING%20GROUNDS%20PRACTICE%20MACHINES/21-SYBARIS.md)
+- [Peppo](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/36c4a5b4575dc7118e02d1e137c524c3703b247c/PROVING%20GROUNDS%20PRACTICE%20MACHINES/22-PEPPO.md)
