@@ -24,3 +24,4 @@
 - [Peppo](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/36c4a5b4575dc7118e02d1e137c524c3703b247c/PROVING%20GROUNDS%20PRACTICE%20MACHINES/22-PEPPO.md)
 - [Hunit](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/afd1ff0d585d2065f2953fd0cc8d14561acfbb01/PROVING%20GROUNDS%20PRACTICE%20MACHINES/23-HUNIT.md)
 - [Readys](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/be7dd11db3dc93f1c479e0c9802ed6a5eb7f0a19/PROVING%20GROUNDS%20PRACTICE%20MACHINES/24-READYS.md)
+- [Astronaut](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/d338b5cde3b6d1b3bfb6ea441fb0d7cd7d5e94d6/PROVING%20GROUNDS%20PRACTICE%20MACHINES/25-ASTRONAUT.md)
