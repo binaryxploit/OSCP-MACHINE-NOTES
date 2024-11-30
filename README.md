@@ -27,3 +27,4 @@
 - [Readys](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/be7dd11db3dc93f1c479e0c9802ed6a5eb7f0a19/PROVING%20GROUNDS%20PRACTICE%20MACHINES/24-READYS.md)
 - [Astronaut](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/d338b5cde3b6d1b3bfb6ea441fb0d7cd7d5e94d6/PROVING%20GROUNDS%20PRACTICE%20MACHINES/25-ASTRONAUT.md)
 - [Bullybox](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/e87cae366eb681b3fdf9b088edca5cc47cfc2fc4/PROVING%20GROUNDS%20PRACTICE%20MACHINES/26-BULLYBOX.md)
+- [Marketing](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/e2006869d5ea258185f5dbcd3547391cba9ecd8a/PROVING%20GROUNDS%20PRACTICE%20MACHINES/27-MARKETING.md)
