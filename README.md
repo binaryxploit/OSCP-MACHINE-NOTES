@@ -30,3 +30,4 @@
 - [Marketing](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/e2006869d5ea258185f5dbcd3547391cba9ecd8a/PROVING%20GROUNDS%20PRACTICE%20MACHINES/27-MARKETING.md)
 - [Exfiltrated](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/822b3f8e6439adb01ed26207dc089d71660835db/PROVING%20GROUNDS%20PRACTICE%20MACHINES/28-EXFILTRATED.md)
 - [Fanatastic](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/ab6ff8c72c113c388bd047aa6285c91af51b83c8/PROVING%20GROUNDS%20PRACTICE%20MACHINES/29-FANATASTIC.md)
+- [Quackerjack](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/3c69ccc74d0cf7410683191e58b9ce3953d32c5f/PROVING%20GROUNDS%20PRACTICE%20MACHINES/30-QUACKERJACK.md)
