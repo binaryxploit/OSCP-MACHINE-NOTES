@@ -36,3 +36,4 @@
 - [Roquefort](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/715644cc12d3c3f0d1d14c4ee85d6ee15b45b870/PROVING%20GROUNDS%20PRACTICE%20MACHINES/33-ROQUEFORT.md)
 - [Levram](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/1f81dcf97655d9714454ef7064d32686e6080a4a/PROVING%20GROUNDS%20PRACTICE%20MACHINES/34-LEVRAM.md)
 - [MzeeAV](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/ae043743d0b4596924d6e94f8cffef524fd7efc4/PROVING%20GROUNDS%20PRACTICE%20MACHINES/35-MZEEAV.md)
+- [Lavita](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/a6512e27ce78f9fd0e44da122e8ef468120314fc/PROVING%20GROUNDS%20PRACTICE%20MACHINES/36-LAVITA.md)
