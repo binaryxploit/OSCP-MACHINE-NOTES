@@ -40,3 +40,6 @@
 - [XposedAPI](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/1e68e59fca7c6acbff50acd037d2ebf3fb5a6765/PROVING%20GROUNDS%20PRACTICE%20MACHINES/37-XPOSEDAPI.md)
 - [Zipper](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/a623007fb05c4e92856d975cfcb07af286ab7004/PROVING%20GROUNDS%20PRACTICE%20MACHINES/38-ZIPPER.md)
 - [Ochima](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/c3935f69d896b3d1eab3da0fd62f1eb7d15736c8/PROVING%20GROUNDS%20PRACTICE%20MACHINES/39-OCHIMA.md)
+
+## Proving Grounds Play Machine Notes
+- [Amaterasu](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/4c8e28f80f0a2bb4631b6da432fd8ed0cfd14200/PROVING%20GROUNDS%20PLAY%20MACHINES/01%20AMATERASU.md)
