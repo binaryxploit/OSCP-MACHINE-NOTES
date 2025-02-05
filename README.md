@@ -43,3 +43,4 @@
 
 ## Proving Grounds Play Machine Notes
 - [Amaterasu](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/4c8e28f80f0a2bb4631b6da432fd8ed0cfd14200/PROVING%20GROUNDS%20PLAY%20MACHINES/01%20AMATERASU.md)
+- [Loly](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/bd751d17c4c2dd117c18a0f217d550af7b69cfb4/PROVING%20GROUNDS%20PLAY%20MACHINES/02%20LOLY.md)
