@@ -45,3 +45,7 @@
 - [Amaterasu](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/4c8e28f80f0a2bb4631b6da432fd8ed0cfd14200/PROVING%20GROUNDS%20PLAY%20MACHINES/01%20AMATERASU.md)
 - [Loly](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/bd751d17c4c2dd117c18a0f217d550af7b69cfb4/PROVING%20GROUNDS%20PLAY%20MACHINES/02%20LOLY.md)
 - [Potato](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/cc79c89c8704e2314cda9e79a1330b965626653c/PROVING%20GROUNDS%20PLAY%20MACHINES/03%20POTATO.md)
+
+## TryHackMe Machine Notes
+- [SteelMountain - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/5fcec61ea5ad1d1e6dfbbf446397a14baaa1ede8/TRYHACKME/01-STEELMOUNTAIN-WINDOWS.md)
+
