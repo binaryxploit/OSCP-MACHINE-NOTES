@@ -1,4 +1,4 @@
-# OSCP-PG-MACHINE-NOTES ~ Progressive
+# OSCP-MACHINE-NOTES ~ Progressive
 ## Proving Grounds Practice Machine Notes
 ### Linux Machines
 - [ClamAV](https://github.com/binaryxploit/OSCP-PG-MACHINE-NOTES/blob/7c588684ebece88b3a81b825bd741b3d3e90f97e/PROVING%20GROUNDS%20PRACTICE%20MACHINES/01-CLAMAV.md)
