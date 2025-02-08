@@ -2,6 +2,14 @@
 ```bash
 # IP ADDRESS
 10.10.16.68
+# HOSTNAME // Found Post Initial foothold
+year-of-the-owl
+# OS INFORMATION // Found Post Initial foothold
+WindowsVersion WindowsBuildLabEx 
+-------------- -----------------
+1809           17763.1.amd64fre.rs5_release.180914-1434
+# Credentials // Found Post Initial foothold
+Jared:sarah 
 ```
 ## OPEN PORTS DETAILS
 ```bash
@@ -101,11 +109,18 @@ Scanning 1 hosts, 3218 communities
 - Trying other tools
 
 # snmpwalk
-sudo snmpwalk -c openview -v1 $ip
+- MIB OID Value for User Accounts 1.3.6.1.4.1.77.1.2.25 
+sudo snmpwalk -c openview -v1 $ip 1.3.6.1.4.1.77.1.2.25
+iso.3.6.1.4.1.77.1.2.25.1.1.5.71.117.101.115.116 = STRING: "Guest"
+iso.3.6.1.4.1.77.1.2.25.1.1.6.74.97.114.101.116.104 = STRING: "Jareth"
+iso.3.6.1.4.1.77.1.2.25.1.1.13.65.100.109.105.110.105.115.116.114.97.116.111.114 = STRING: "Administrator"
+iso.3.6.1.4.1.77.1.2.25.1.1.14.68.101.102.97.117.108.116.65.99.99.111.117.110.116 = STRING: "DefaultAccount"
+iso.3.6.1.4.1.77.1.2.25.1.1.18.87.68.65.71.85.116.105.108.105.116.121.65.99.99.111.117.110.116 = STRING: "WDAGUtilityAccount"
+
 - List system contents
 # snmp-check
 sudo snmp-check -c openview $ip
-[*] User accounts:                                                                                                                                                          Guest                                                                                                                                                                       
+[*] User accounts:                                                                                                                                                          Guest                                                 
 Jareth                                                                                                                                                                      
 Administrator                                                                                                                                                               
 DefaultAccount                                                                                                                                                              
