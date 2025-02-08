@@ -5,9 +5,7 @@
 # HOSTNAME // Found Post Initial foothold
 year-of-the-owl
 # OS INFORMATION // Found Post Initial foothold
-WindowsVersion WindowsBuildLabEx 
--------------- -----------------
-1809           17763.1.amd64fre.rs5_release.180914-1434
+Windows Server 2019 Standard
 # Credentials // Found Post Initial foothold
 Jared:sarah 
 ```
