@@ -48,4 +48,5 @@
 
 ## TryHackMe Machine Notes
 - [SteelMountain - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/5fcec61ea5ad1d1e6dfbbf446397a14baaa1ede8/TRYHACKME/01-STEELMOUNTAIN-WINDOWS.md)
+- [YearoftheOWL - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/5551c1bf18f525c59e41bab0ac3cd3e0ad65ff37/TRYHACKME/02-YEAROFTHEOWL.md)
 
