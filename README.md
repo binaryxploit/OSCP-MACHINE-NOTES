@@ -49,5 +49,6 @@
 ## TryHackMe Machine Notes
 - [SteelMountain - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/5fcec61ea5ad1d1e6dfbbf446397a14baaa1ede8/TRYHACKME/01-STEELMOUNTAIN-WINDOWS.md)
 - [YearoftheOWL - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/5551c1bf18f525c59e41bab0ac3cd3e0ad65ff37/TRYHACKME/02-YEAROFTHEOWL.md)
-- [Retro](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/1cd4597bac2f916db6274726677d58c7880c157b/TRYHACKME/03-RETRO.md)
+- [Retro - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/1cd4597bac2f916db6274726677d58c7880c157b/TRYHACKME/03-RETRO.md)
+- [Alfred - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/41da354c834c3859ef0c73368d37b491409e0c79/TRYHACKME/04-ALFRED.md)
 
