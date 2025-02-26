@@ -54,4 +54,5 @@
 - [Relevant - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/40f3a16ef79558253b0371eb1f5929fb004bbae6/TRYHACKME/05-RELEVANT.md)
 - [Blueprint - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/2fa3e9debe29cdd6db46a9f5b82b5725cc8c73a9/TRYHACKME/06-BLUEPRINT.md)
 - [Hackpark - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/73d578dfa0e2bd3ba72353703a8bc6ef4da75214/TRYHACKME/07-HACKPARK.md)
+- [Weasel - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/faf6514ad339356c891b6f1343744d2dc18b6619/TRYHACKME/08-WEASEL.md)
 
