@@ -56,4 +56,5 @@
 - [Hackpark - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/73d578dfa0e2bd3ba72353703a8bc6ef4da75214/TRYHACKME/07-HACKPARK.md)
 - [Weasel - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/faf6514ad339356c891b6f1343744d2dc18b6619/TRYHACKME/08-WEASEL.md)
 - [AllSignsPoint2Pwnage - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/075a97d23c95b993687e6f2fb7e84475fb6873dc/TRYHACKME/09-ALLSIGNSPOINT2PWNAGE.md)
+- [Anthem - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/85936a5ee05afa6758d06d223d85998245f89991/TRYHACKME/10-ANTHEM.md)
 
