@@ -58,4 +58,5 @@
 - [AllSignsPoint2Pwnage - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/075a97d23c95b993687e6f2fb7e84475fb6873dc/TRYHACKME/09-ALLSIGNSPOINT2PWNAGE.md)
 - [Anthem - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/85936a5ee05afa6758d06d223d85998245f89991/TRYHACKME/10-ANTHEM.md)
 - [HackSmarterSecurity - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/2327ae6f80df77b8893376742be6773260a36943/TRYHACKME/11-HACK-SMARTER-SECURITY.md)
+- [Cyberlens - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/9224a2f4a42bf08f101895c00dfbcccf97863574/TRYHACKME/12-CYBERLENS.md)
 
