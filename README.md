@@ -47,6 +47,7 @@
 - [Potato](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/cc79c89c8704e2314cda9e79a1330b965626653c/PROVING%20GROUNDS%20PLAY%20MACHINES/03%20POTATO.md)
 
 ## TryHackMe Machine Notes
+### WINDOWS
 - [SteelMountain - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/5fcec61ea5ad1d1e6dfbbf446397a14baaa1ede8/TRYHACKME/01-STEELMOUNTAIN-WINDOWS.md)
 - [YearoftheOWL - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/5551c1bf18f525c59e41bab0ac3cd3e0ad65ff37/TRYHACKME/02-YEAROFTHEOWL.md)
 - [Retro - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/1cd4597bac2f916db6274726677d58c7880c157b/TRYHACKME/03-RETRO.md)
@@ -59,4 +60,6 @@
 - [Anthem - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/85936a5ee05afa6758d06d223d85998245f89991/TRYHACKME/10-ANTHEM.md)
 - [HackSmarterSecurity - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/2327ae6f80df77b8893376742be6773260a36943/TRYHACKME/11-HACK-SMARTER-SECURITY.md)
 - [Cyberlens - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/9224a2f4a42bf08f101895c00dfbcccf97863574/TRYHACKME/12-CYBERLENS.md)
+### LINUX
+- [MrRobot](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/a3143c3c13626dedcac5aa52e099beba25f03f2e/TRYHACKME/01-MR-ROBOT.md)
 
