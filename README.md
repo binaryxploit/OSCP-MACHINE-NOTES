@@ -62,4 +62,5 @@
 - [Cyberlens - Windows](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/9224a2f4a42bf08f101895c00dfbcccf97863574/TRYHACKME/12-CYBERLENS.md)
 ### LINUX
 - [MrRobot](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/a3143c3c13626dedcac5aa52e099beba25f03f2e/TRYHACKME/01-MR-ROBOT.md)
+- [Thompson](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/37a7df7c5e687df38e6f18055a8547e0ede6bd0e/TRYHACKME/02-THOMPSON.md)
 
