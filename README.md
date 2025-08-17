@@ -67,4 +67,5 @@
 ### ACTIVE DIRECTORY
 - [Attacktive Directory](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/9f8b83c7efe5282bee1191d17b76106b7bede109/TRYHACKME/01-ATTACKTIVE-DIRECTORY.md)
 - [Attacking Kerberos](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/b854d33d6a7a3c1bde7a09ba93721bc9ff5da8e1/TRYHACKME/02-ATTACKING-KERBEROS.md)
+- [VulnNet Active](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/19805e6cad514e9b27626d950cb3e2909b004dbf/TRYHACKME/13-VULNETACTIVE.md)
 
