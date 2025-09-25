@@ -65,6 +65,7 @@
 - [MrRobot](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/a3143c3c13626dedcac5aa52e099beba25f03f2e/TRYHACKME/01-MR-ROBOT.md)
 - [Thompson](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/37a7df7c5e687df38e6f18055a8547e0ede6bd0e/TRYHACKME/02-THOMPSON.md)
 - [Kenobi](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/a9556b59c1b9f9aa4aef653547a2a1db4fe14e3d/TRYHACKME/03-KENOBI.md)
+- [GameZone](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/ff49a776963295f4d69ae53125338a1244df2386/TRYHACKME/04-GAMEZONE.md)
 ### ACTIVE DIRECTORY
 - [Attacktive Directory](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/9f8b83c7efe5282bee1191d17b76106b7bede109/TRYHACKME/01-ATTACKTIVE-DIRECTORY.md)
 - [Attacking Kerberos](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/b854d33d6a7a3c1bde7a09ba93721bc9ff5da8e1/TRYHACKME/02-ATTACKING-KERBEROS.md)
