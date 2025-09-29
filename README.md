@@ -69,6 +69,7 @@
 - [SkyNet](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/0d5dcb29ee85133fb35e7d2015a7b29b620e4887/TRYHACKME/05-SKYNET.md)
 - [DailyBugle](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/246a42ab3d89415df0893c3d3b8057f9ed4bea23/TRYHACKME/06-DAILYBUGLE.md)
 - [LazyAdmin](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/e443897a0a38d36da7b90f53502b4c2c7177b83f/TRYHACKME/07-LAZYADMIN.md)
+- [TomGhost](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/c6d01eeef6a17f6e118615a41b3637043a9bcc0e/TRYHACKME/08-TOMGHOST.md)
 ### ACTIVE DIRECTORY
 - [Attacktive Directory](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/9f8b83c7efe5282bee1191d17b76106b7bede109/TRYHACKME/01-ATTACKTIVE-DIRECTORY.md)
 - [Attacking Kerberos](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/b854d33d6a7a3c1bde7a09ba93721bc9ff5da8e1/TRYHACKME/02-ATTACKING-KERBEROS.md)
