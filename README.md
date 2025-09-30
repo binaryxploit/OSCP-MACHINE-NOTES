@@ -71,6 +71,7 @@
 - [LazyAdmin](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/e443897a0a38d36da7b90f53502b4c2c7177b83f/TRYHACKME/07-LAZYADMIN.md)
 - [TomGhost](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/c6d01eeef6a17f6e118615a41b3637043a9bcc0e/TRYHACKME/08-TOMGHOST.md)
 - [RootMe](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/7fb2445886f1be1307c5f808c8c956538c5f5c2b/TRYHACKME/09-ROOTME.md)
+- [Cmess](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/7b9b96e31dd2b3979700acb20acb93fa97520ffe/TRYHACKME/10-CMESS.md)
 ### ACTIVE DIRECTORY
 - [Attacktive Directory](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/9f8b83c7efe5282bee1191d17b76106b7bede109/TRYHACKME/01-ATTACKTIVE-DIRECTORY.md)
 - [Attacking Kerberos](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/b854d33d6a7a3c1bde7a09ba93721bc9ff5da8e1/TRYHACKME/02-ATTACKING-KERBEROS.md)
