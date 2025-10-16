@@ -78,6 +78,7 @@
 - [BoilerCTF](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/cb0f6f7a8ee70130250ccad3289efda812c2d937/TRYHACKME/14-BOILERCTF.md)
 - [Wonderland](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/984d2ead299787b8046cea9ec29f6126cf7dd191/TRYHACKME/15-WONDERLAND.md)
 - [SilverPlatter](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/f22069b1bb80badf4304dddc251a96f8a9bfa7cd/TRYHACKME/16-SILVERPLATTER.md)
+- [YearOftheJellyFish](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/64babc16df0a13879f2c67cd961cc6aeb5b517fc/TRYHACKME/17-YEAROFTHEJELLYFISH.md)
 ### ACTIVE DIRECTORY
 - [Attacktive Directory](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/9f8b83c7efe5282bee1191d17b76106b7bede109/TRYHACKME/01-ATTACKTIVE-DIRECTORY.md)
 - [Attacking Kerberos](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/b854d33d6a7a3c1bde7a09ba93721bc9ff5da8e1/TRYHACKME/02-ATTACKING-KERBEROS.md)
