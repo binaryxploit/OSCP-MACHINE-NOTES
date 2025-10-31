@@ -93,7 +93,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 ## ENUMERATION
 ```bash
 - add thm.corp to /etc/hosts file
-- add haystack.thm.corp also /etc/hosts
+- add haystack.thm.corp also to /etc/hosts
   
 # Port 139 445 
 sudo nxc smb $ip --shares -u 'anonymous' -p ''
