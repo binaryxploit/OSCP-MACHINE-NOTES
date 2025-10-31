@@ -84,4 +84,5 @@
 - [Attacking Kerberos](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/b854d33d6a7a3c1bde7a09ba93721bc9ff5da8e1/TRYHACKME/02-ATTACKING-KERBEROS.md)
 - [VulnNet Active](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/19805e6cad514e9b27626d950cb3e2909b004dbf/TRYHACKME/13-VULNETACTIVE.md)
 - [Enterprise](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/3a1066683ae6db7fc822903845dbd44c6e1602db/TRYHACKME/14-ENTERPRISE.md)
+- [Reset](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/b5209a2080774f50d97878d69154a1decccea797/TRYHACKME/04-RESET.md)
 
