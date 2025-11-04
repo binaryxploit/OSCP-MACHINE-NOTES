@@ -47,6 +47,7 @@
 - [Potato](https://github.com/binaryxploit/Proving-Grounds-Notes/blob/cc79c89c8704e2314cda9e79a1330b965626653c/PROVING%20GROUNDS%20PLAY%20MACHINES/03%20POTATO.md)
 - [Stapler](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/238e64a2b4623f0e0bdbe4932ccd17acb7c53b85/PROVING%20GROUNDS%20PLAY%20MACHINES/04-STAPLER.md)
 - [BBSCute](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/948c5f619d7915a369dfbc2fad7e754c21169a30/PROVING%20GROUNDS%20PLAY%20MACHINES/05-BBSCUTE.md)
+- [Gaara](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/6b82c42d873e5a92dd8fe82c34ad8d125aa1ffee/PROVING%20GROUNDS%20PLAY%20MACHINES/06-GAARA.md)
 
 ## TryHackMe Machine Notes
 ### WINDOWS
