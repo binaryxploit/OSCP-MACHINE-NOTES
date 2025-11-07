@@ -50,6 +50,7 @@
 - [Gaara](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/6b82c42d873e5a92dd8fe82c34ad8d125aa1ffee/PROVING%20GROUNDS%20PLAY%20MACHINES/06-GAARA.md)
 - [Blogger](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/55dbc459d526cc33191c567fe6e74325a7802077/PROVING%20GROUNDS%20PLAY%20MACHINES/07-BLOGGER.md)
 - [FunBoxEasyEnum](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/5dfb278bce1baa58f89dfd72fda0bf9e5008abe8/PROVING%20GROUNDS%20PLAY%20MACHINES/08-FUNBOXEASYENUM.md)
+- [GlasgowSmile](https://github.com/binaryxploit/OSCP-MACHINE-NOTES/blob/0bbd718f8c7dc83f6924e132b8f764847c136484/PROVING%20GROUNDS%20PLAY%20MACHINES/09-GLASGOWSMILE.md)
 
 ## TryHackMe Machine Notes
 ### WINDOWS
